@@ -6,15 +6,6 @@
         <title>Dashboard</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
         <style>
-            .navbar{
-                background-color: #1E3A8A;
-            } 
-            .cnavbar-text{
-                color: #D6D7DA;
-            }
-            .nav-link.active{
-                color: #D6D7DA !important;
-            }
             .primary{
                 color: #1E3A8A;
             }
@@ -45,7 +36,7 @@
         </style>
     </head>
     <body>
-        <nav class="navbar navbar-expand-lg " >
+        <nav class="navbar navbar-expand-lg bg-body-tertiary" >
             <div class="container-fluid">
                 <a class="navbar-brand cnavbar-text" href="#">Teguh</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -73,24 +64,21 @@
             <div class="row">
                 <div class="container">
                     <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 gx-3 gy-3">
-                        
                         <div class="col d-flex">
                             <div class="card w-100">
-                                <button type="button" class="btn w-100 h-100" 
-                                    data-bs-toggle="modal" data-bs-target="#modalTambahAgenda"> 
-                                    <div class="card-body d-flex flex-column justify-content-center align-items-center">                                         
+                                <button type="button" class="btn w-100 h-100">
+                                    <div class="card-body d-flex flex-column justify-content-center align-items-center">                                         
                                         <h5 class="card-title primary text1 ">Tambah Agenda</h5>
-                                        <p class="card-text primary flex-grow-1 d-flex align-items-center justify-content-center" style="font-size: 150px;">+</p>
+                                        <p class="card-text primary flex-grow-1 d-flex justify-content-center" style="font-size: 150px">+</p>
                                         <p class="card-text text4" >Klik untuk tambah</p>
                                     </div>
-                                </button>    
+                                </button>    
                             </div>
                         </div>
 
                         <div class="col d-flex">
                             <div class="card w-100">
-                                <button type="button" class="btn text-start w-100 h-100"
-                                    data-bs-toggle="modal" data-bs-target="#modalDetailAgenda1">
+                                <button type="button" class="btn text-start w-100 h-100">
                                     <div class="card-body d-flex flex-column w-100 h-100">
                                         <h5 class="card-title primary text1">Belajar Laravel</h5>
                                         <div class="row mb-1">
@@ -112,17 +100,17 @@
                                         <div class="row mb-0">
                                             <div class="card-text text2 col-3">Partisipan</div>
                                             <div class="card-text text2 col-1">:</div>
-                                            <div class="col-8"></div>                                         
+                                            <div class="col-8"></div>                                         
                                         </div>
                                         
                                         <div class="row flex-grow-1 mt-2 mb-2"> 
                                             <div class="col-12">
                                                 <div class="card-text text3">
-                                                    <span class="bordertext">Teguh</span>
-                                                    <span class="bordertext">Ahmad</span>
-                                                    <span class="bordertext">Hafizhah</span>
-                                                    <span class="bordertext">Nabila</span>
-                                                    <span class="bordertext">Azka</span>
+                                                    <div class="span bordertext">Teguh</div>
+                                                    <div class="span bordertext">Ahmad</div>
+                                                    <div class="span bordertext">Hafizhah</div>
+                                                    <div class="span bordertext">Nabila</div>
+                                                    <div class="span bordertext">Azka</div>
                                                 </div>
                                             </div>
                                         </div>
@@ -135,7 +123,7 @@
 
                         <div class="col d-flex">
                             <div class="card w-100">
-                                <button type="button" class="btn text-start w-100 h-100" data-bs-toggle="modal" data-bs-target="#modalDetailAgenda1"> 
+                                <button type="button" class="btn text-start w-100 h-100">
                                     <div class="card-body d-flex flex-column w-100 h-100">
                                         <h5 class="card-title primary text1">Belajar Laravel</h5>
                                         <div class="row mb-1">
@@ -157,17 +145,62 @@
                                         <div class="row mb-0">
                                             <div class="card-text text2 col-3">Partisipan</div>
                                             <div class="card-text text2 col-1">:</div>
-                                            <div class="col-8"></div>                                         
+                                            <div class="col-8"></div>                                         
                                         </div>
                                         
                                         <div class="row flex-grow-1 mt-2 mb-2"> 
                                             <div class="col-12">
                                                 <div class="card-text text3">
-                                                    <span class="bordertext">Teguh</span>
-                                                    <span class="bordertext">Ahmad</span>
-                                                    <span class="bordertext">Hafizhah</span>
-                                                    <span class="bordertext">Nabila</span>
-                                                    <span class="bordertext">Azka</span>
+                                                    <div class="span bordertext">Teguh</div>
+                                                    <div class="span bordertext">Ahmad</div>
+                                                    <div class="span bordertext">Hafizhah</div>
+                                                    <div class="span bordertext">Nabila</div>
+                                                    <div class="span bordertext">Azka</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <p class="card-text text4 text-center mt-auto" >Klik untuk detail</p>
+                                    </div>
+                                </button>
+                            </div>
+                        </div>
+
+                            <div class="col d-flex">
+                            <div class="card w-100">
+                                <button type="button" class="btn text-start w-100 h-100">
+                                    <div class="card-body d-flex flex-column w-100 h-100">
+                                        <h5 class="card-title primary text1">Belajar Laravel</h5>
+                                        <div class="row mb-1">
+                                            <div class="card-text text2 col-3">Tempat</div>
+                                            <div class="card-text text2 col-1">:</div>
+                                            <div class="card-text text3 col-8">Telkom University Surabaya</div>
+                                        </div>
+                                        <div class="row mb-1">
+                                            <div class="card-text text2 col-3">Waktu</div>
+                                            <div class="card-text text2 col-1">:</div>
+                                            <div class="card-text text3 col-8 ">Sabtu, 12 Oktober 2025</div>
+                                        </div>
+                                        <div class="row mb-1">
+                                            <div class="card-text text2 col-3">Jam</div>
+                                            <div class="card-text text2 col-1">:</div>
+                                            <div class="card-text text3 col-8">12.00</div>
+                                        </div>
+                                        
+                                        <div class="row mb-0">
+                                            <div class="card-text text2 col-3">Partisipan</div>
+                                            <div class="card-text text2 col-1">:</div>
+                                            <div class="col-8"></div>                                         
+                                        </div>
+                                        
+                                        <div class="row flex-grow-1 mt-2 mb-2"> 
+                                            <div class="col-12">
+                                                <div class="card-text text3">
+                                                    <div class="span bordertext">Teguh</div>
+                                                    <div class="span bordertext">Ahmad</div>
+                                                    <div class="span bordertext">Hafizhah</div>
+                                                    <div class="span bordertext">Nabila</div>
+                                                    <div class="span bordertext">Azka</div>
                                                 </div>
                                             </div>
                                         </div>
@@ -181,84 +214,6 @@
                 </div>
             </div>
         </div>
-
-        <div class="modal fade" id="modalTambahAgenda" tabindex="-1" aria-labelledby="modalTambahAgendaLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title primary" id="modalTambahAgendaLabel">Form Tambah Agenda</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <form>
-                            <div class="mb-3">
-                                <label class="form-label secondary text2">Penyelenggara : Teguh</label>
-                                </div>
-                            
-                            <div class="mb-3">
-                                <label for="namaAgenda" class="form-label secondary text2">Nama Agenda</label>
-                                <input type="text" class="form-control" id="namaAgenda" placeholder="name agenda">
-                            </div>
-
-                            <div class="row mb-3">
-                                <div class="col-md-5">
-                                    <label for="tempatAgenda" class="form-label secondary text2">Tempat</label>
-                                    <input type="text" class="form-control" id="tempatAgenda" placeholder="name place">
-                                </div>
-                                <div class="col-md-4">
-                                    <label for="waktuAgenda" class="form-label secondary text2">Waktu</label>
-                                    <input type="date" class="form-control" id="waktuAgenda" placeholder="d/M/y">
-                                </div>
-                                <div class="col-md-3">
-                                    <label for="jamAgenda" class="form-label secondary text2">Jam</label>
-                                    <input type="time" class="form-control" id="jamAgenda" placeholder="-- : --">
-                                </div>
-                            </div>
-                            
-                            <div class="mb-3">
-                                <label for="partisipanAgenda" class="form-label secondary text2">Partisipan</label>
-                                <input type="text" class="form-control" id="partisipanAgenda" placeholder="+ Klik untuk tambah partisipan">
-                            </div>
-
-                            <div class="mb-3">
-                                <div class="span bordertext secondary text3">Ini Nama</div>
-                            </div>
-                        </form>
-                    </div>
-                    <div class="modal-footer justify-content-center border-0">
-                        <button type="button" class="btn btn-primary" style="width: 150px;">Simpan</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="modal fade" id="modalDetailAgenda1" tabindex="-1" aria-labelledby="modalDetailAgenda1Label" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="modalDetailAgenda1Label">Detail: Belajar Laravel</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <p>Penyelenggara:<strong> Teguh </strong></p>
-                        <p>Tempat:<strong> Telkom University Surabaya</strong></p>
-                        <p>Waktu:<strong> Sabtu, 12 Oktober 2025 (12.00)</strong></p>
-                        <p>Partisipan:</p>
-                        <div class="text3">
-                            <span class="bordertext">Teguh</span>
-                            <span class="bordertext">Ahmad</span>
-                            <span class="bordertext">Hafizhah</span>
-                            <span class="bordertext">Nabila</span>
-                            <span class="bordertext">Azka</span>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
-    </body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+  </body>
 </html>
