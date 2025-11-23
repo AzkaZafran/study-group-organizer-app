@@ -14,7 +14,7 @@ class UserController extends Controller
         ];
 
         if(auth()->guard()->attempt($default_user)){
-            return view('dashboard');
+            return redirect('/dashboard');
         } else{
             return $this->register_dummy();
         }
@@ -29,6 +29,6 @@ class UserController extends Controller
 
         $user = User::create($create_dummy);
         auth()->guard()->login($user);
-        return view('dashboard');
+        return redirect('/dashboard');
     }
 }
