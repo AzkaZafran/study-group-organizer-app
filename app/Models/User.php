@@ -45,4 +45,21 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function userFriendList(){
+        $teman_berhasil_diminta = $this->hasMany(DaftarPermintaanTeman::class, 'idpeminta')->where('status', 1)->latest()->get();
+        $teman_diterima = $this->hasMany(DaftarPermintaanTeman::class, 'idtarget')->where('status', 1)->latest()->get();
+        return $teman_berhasil_diminta->merge($teman_diterima);
+    }
+
+    public function konfirmasiPartisipan()
+    {
+        return $this->hasMany(KonfirmasiPartisipan::class, 'idpengguna', 'id');
+    }
+
+    public function agenda()
+    {
+        // through KonfirmasiPartisipan
+        return $this->belongsToMany(Agenda::class, 'konfirmasipartisipan', 'idpengguna', 'idagenda');
+    }
 }
