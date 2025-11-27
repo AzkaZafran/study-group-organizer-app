@@ -11,6 +11,14 @@ Route::get('/', [UserController::class, 'login']);
 //     return view('drafts/dashboard');
 // });
 
+// Route::get('/', function () {
+//     return view('login');
+// });
+
+// Route::get('/r', function () {
+//     return view('register');
+// });
+
 Route::get('/dashboard', function(){
     $list_agenda = [];
     if(auth()->check()){
