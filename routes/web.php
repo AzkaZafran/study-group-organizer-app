@@ -24,3 +24,7 @@ Route::get('/dashboard', function(){
 Route::get('/friend', function () {
     return view('friend-list');
 });
+
+Route::get('/friend-request', function(){
+    return view('friend-request');
+})->name('friend-request');

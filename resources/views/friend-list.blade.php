@@ -6,7 +6,7 @@
             <a class="nav-link cnav-text selected active" aria-current="page" href="#">Daftar Teman</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link cnav-text unselected" href="#">Permintaan Teman</a>
+            <a class="nav-link cnav-text unselected" href="{{ route('friend-request') }}">Permintaan Teman</a>
         </li>
         <li class="nav-item">
             <a class="nav-link cnav-text unselected" href="#">Tambah Teman</a>
