@@ -1,0 +1,96 @@
+body{
+    padding: 0;
+    margin: 0;
+    background-color: #4AFFF6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+@font-face {
+    font-family: Montserrat_SemiBold;
+    src: url('../fonts/montserrat-static/Montserrat-SemiBold.ttf');
+}
+@font-face {
+    font-family: Inter_Light;
+    src: url('../fonts/inter-static/Inter_18pt-Light.ttf');
+}
+@font-face {
+    font-family: Inter_Medium;
+    src: url('../fonts/inter-static/Inter_18pt-Medium.ttf');
+}
+
+@font-face {
+    font-family: Inter_Bold;
+    src: url('../fonts/inter-static/Inter_18pt-Bold.ttf');
+}
+
+h1, h2, h3, h4{
+    margin: 0;
+    padding: 0;
+}
+
+.otp-block{
+    width: 480px;
+    height: 510px;
+    border-radius: 15px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.otp-form{
+    margin-top: 45px;
+}
+
+.otp-title{
+    font-size: 30;
+    color: black;
+    font-family: Montserrat_SemiBold;
+}
+
+.otp-subtitle{
+    font-size: 16px;
+    color: #989898;
+    font-family: Inter_Light;
+    margin-top: 16px;
+}
+
+.otp-subtitle span{
+    color: #0487E2;
+}
+
+form h3{
+    margin-top: 79px;
+    font-family: Inter_Bold;
+    font-size: 20px;
+}
+
+form input{
+    display: block;
+}
+
+form input[type="text"]{
+    margin-top: 16px;
+    height: 50px;
+    width: 264px;
+    border-radius: 5px;
+    outline: none; 
+    border: none;
+    background-color: hsla(0, 0%, 39%, 0.15);
+}
+
+form input[type="submit"]{
+    height: 40px;
+    background-color: #0487E2;
+    color: white;
+    font-family: Inter_Bold;
+    font-size: 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 84px;
+    width: 383px;
+}

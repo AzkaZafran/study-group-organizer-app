@@ -14,25 +14,26 @@
         
         <h3 class="card-title text-center mb-4">Register</h3>
 
-        <form>
+        <form action="{{ route('input-otp') }}" method="POST">
+            @csrf
             <div class="mb-3">
                 <label for="inputName" class="form-label">Nama Pengguna</label>
-                <input type="text" id="inputName" class="form-control" placeholder="Masukkan Nama" required />
+                <input type="text" id="inputName" class="form-control" placeholder="Masukkan Nama" required name="temp_name"/>
             </div>
 
             <div class="mb-3">
                 <label for="inputEmail" class="form-label">Email</label>
-                <input type="email" id="inputEmail" class="form-control" placeholder="Masukkan Alamat Email" required />
+                <input type="email" id="inputEmail" class="form-control" placeholder="Masukkan Alamat Email" required name="temp_email"/>
             </div>
 
             <div class="mb-3">
                 <label for="inputPassword" class="form-label">Password</label>
-                <input type="password" id="inputPassword" class="form-control" placeholder="Masukkan Password" required />
+                <input type="password" id="inputPassword" class="form-control" placeholder="Masukkan Password" required name="temp_password"/>
             </div>
 
             <div class="mb-3">
                 <label for="inputConfirmPassword" class="form-label">Konfirmasi Password</label>
-                <input type="password" id="inputConfirmPassword" class="form-control" placeholder="Ulangi Password" required />
+                <input type="password" id="inputConfirmPassword" class="form-control" placeholder="Ulangi Password" required name="repeat_password"/>
             </div>
 
             <button type="submit" class="btn btn-primary w-100 mb-3">Register</button>

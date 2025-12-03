@@ -7,28 +7,26 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-    public function login(Request $request){
-        $default_user = [
-            'name' => 'Teguh Ryan',
-            'password'=> 'admin123'
-        ];
-
-        if(auth()->guard()->attempt($default_user)){
-            return redirect('/dashboard');
-        } else{
-            return $this->register_dummy();
-        }
+    public function logout(Request $request){
+        auth()->guard()->logout();
+        return redirect('/');
     }
 
-    private function register_dummy(){
-        $create_dummy = [
-            'name' => 'Teguh Ryan',
-            'email' => 'teguhryan@dummyemail.com',
-            'password' => bcrypt('admin123')
+    public function login(Request $request){
+        $input = $request->validate([
+            'login-email'=> ['required', 'email'],
+            'login-password' => 'required'
+        ]);
+
+        $query_input = [
+            'email'=> $input['login-email'],
+            'password' => $input['login-password']
         ];
 
-        $user = User::create($create_dummy);
-        auth()->guard()->login($user);
-        return redirect('/dashboard');
+        if(auth()->guard()->attempt($query_input)){
+            $request->session()->regenerate();
+        }
+
+        return redirect()->route('dashboard');
     }
 }
