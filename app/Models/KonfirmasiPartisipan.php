@@ -8,6 +8,8 @@ class KonfirmasiPartisipan extends Model
 {
     protected $table = 'konfirmasipartisipan';
 
+    protected $primaryKey = 'id_konfirmasipartisipan';
+
     protected $fillable = [
         'idagenda',
         'idpengguna',
