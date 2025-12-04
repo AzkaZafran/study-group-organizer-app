@@ -35,27 +35,24 @@ Route::get('/dashboard', function(){
     return view('dashboard', ['list_agenda' => $list_agenda]);
 })->name('dashboard');
 
-Route::get('/friend', [FriendController::class, 'friendList'])
-       ->name('friend');
-
-Route::get('/friend/list', [FriendController::class, 'friendList'])
+Route::get('/friend-list', [FriendController::class, 'friendList'])
        ->name('friend-list');
 
-Route::get('/friend/requests', [FriendController::class, 'friendRequest'])
+Route::get('/friend-requests', [FriendController::class, 'friendRequest'])
        ->name('friend-request');
 
-Route::put('/friend/requests/{id}/accept', [FriendController::class, 'acceptFriend'])
+Route::put('/friend-requests/{id}/accept', [FriendController::class, 'acceptFriend'])
        ->name('accept-friend');
 
-Route::delete('/friend/requests/{id}/reject', [FriendController::class, 'rejectFriend'])
+Route::delete('/friend-requests/{id}/reject', [FriendController::class, 'rejectFriend'])
        ->name('reject-friend');
 
-Route::get('/friend/add', function(){
+Route::get('/friend-add', function(){
     return view('friend-add');
 })->name('add-friend');
 
-Route::get('/friend/add/search-friend', [FriendController::class, 'searchUserToAdd'])
+Route::get('/friend-add/search-friend', [FriendController::class, 'searchUserToAdd'])
        ->name('search-user-to-add');
 
-Route::post('/friend/add/{user}', [FriendController::class, 'sendRequest'])
+Route::post('/friend-add/{user}', [FriendController::class, 'sendRequest'])
        ->name('requesting-friend');
