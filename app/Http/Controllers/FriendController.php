@@ -13,8 +13,8 @@ class FriendController extends Controller
         if(auth()->check()){
             $friend_list = auth()->user()->userFriendList()->get();
         }
-        // return view("friend-list",["friend_list"=> $friend_list]);
-        return response()->json($friend_list);
+        return view("friend-list",["friend_list"=> $friend_list]);
+        // return response()->json($friend_list);
     }
 
     public function friendRequest(Request $request){
@@ -22,8 +22,8 @@ class FriendController extends Controller
         if(auth()->check()){
             $permintaan_teman = auth()->user()->pendingRequest()->get();
         }
-        // return view("friend-request", ["permintaan_teman" => $permintaan_teman]);
-        return response()->json($permintaan_teman);
+        return view("friend-request", ["permintaan_teman" => $permintaan_teman]);
+        // return response()->json($permintaan_teman);
     }
 
     public function acceptFriend(int $id){
@@ -48,8 +48,8 @@ class FriendController extends Controller
         ];
         $add_result = DaftarPermintaanTeman::create($receiver_request_query);
 
-        // return redirect()->route('friend-request');
-        return response()->json([$matched, $add_result]);
+        return redirect()->route('friend-request');
+        // return response()->json([$matched, $add_result]);
     }
 
     public function rejectFriend(int $id){
@@ -63,8 +63,8 @@ class FriendController extends Controller
 
         $matched->delete();
 
-        // return redirect()->route('friend-request');
-        return response()->json(['message' => 'permintaan ditolak']);
+        return redirect()->route('friend-request');
+        // return response()->json(['message' => 'permintaan ditolak']);
     }
 
     public function searchUserToAdd(Request $request){
@@ -74,9 +74,9 @@ class FriendController extends Controller
 
         $query_result = User::where('name', $input['search_username'])->get();
         if($query_result->isEmpty()){
-            // return redirect()->route('add-friend')
-            //                  ->with('search_result', '');
-            return response()->json();
+            return redirect()->route('add-friend')
+                             ->with('search_result', '');
+            // return response()->json();
         }
 
         $incoming_friend_requests = auth()->user()->incomingFriendRequestFrom($input['search_username'])->get();
@@ -88,9 +88,9 @@ class FriendController extends Controller
         }
 
         if($query_result->isEmpty()){
-            // return redirect()->route('add-friend')
-            //                  ->with('search_result', '');
-            return response()->json();
+            return redirect()->route('add-friend')
+                             ->with('search_result', '');
+            // return response()->json();
         }
 
         $friend_status = auth()->user()->friendRequestByUsername($input['search_username'])->get();
@@ -110,9 +110,9 @@ class FriendController extends Controller
             return $user;
         });
 
-        // return redirect()->route('add-friend')
-        //                  ->with('search_result', $query_result);
-        return response()->json($query_result);
+        return redirect()->route('add-friend')
+                         ->with('search_result', $query_result);
+        // return response()->json($query_result);
     }
 
     public function sendRequest(User $user){
@@ -124,7 +124,7 @@ class FriendController extends Controller
 
         $send_result = DaftarPermintaanTeman::create($query_input);
 
-        // return redirect()->route('add-friend');
-        return response()->json($send_result);
+        return redirect()->route('add-friend');
+        // return response()->json($send_result);
     }
 }
