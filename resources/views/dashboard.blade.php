@@ -33,33 +33,33 @@
                         <button type="button" class="btn text-start w-100 h-100"
                             data-bs-toggle="modal" data-bs-target={{ '#modaldetailagenda'.$agenda['ID_agenda'] }}>
                             <div class="card-body d-flex flex-column w-100 h-100">
-                                <h5 class="card-title primary text1">{{ $agenda['nama_agenda'] }}</h5>
+                                <h5 class="card-title primary text1">{{ $agenda->nama_agenda }}</h5>
                                 <div class="row mb-1">
                                     <div class="card-text text2 col-3">Tempat</div>
                                     <div class="card-text text2 col-1">:</div>
-                                    <div class="card-text text3 col-8">{{ $agenda['lokasi'] }}</div>
+                                    <div class="card-text text3 col-8">{{ $agenda->lokasi }}</div>
                                 </div>
                                 <div class="row mb-1">
                                     <div class="card-text text2 col-3">Waktu</div>
                                     <div class="card-text text2 col-1">:</div>
-                                    <div class="card-text text3 col-8 ">{{ $agenda['waktu'] }}</div>
+                                    <div class="card-text text3 col-8 ">{{ $agenda->waktu->format('l, d F Y') }}</div>
                                 </div>
                                 <div class="row mb-1">
                                     <div class="card-text text2 col-3">Jam</div>
                                     <div class="card-text text2 col-1">:</div>
-                                    <div class="card-text text3 col-8">12.00</div>
+                                    <div class="card-text text3 col-8">{{ $agenda->waktu->format('H:i') . " WIB" }}</div>
                                 </div>
                                 
                                 <div class="row">
                                     <div class="card-text text2 col-3">Partisipan</div>
-                                    <div class="card-text text2 col-1">:</div>                                    
+                                    <div class="card-text text2 col-1">:</div>
                                 </div>
                                 
                                 <div class="row flex-grow-1 mt-2 mb-2"> 
                                     <div class="col-12">
                                         <div class="card-text text3">
-                                            @foreach ($agenda['users'] as $partisipan)
-                                                <span class="bordertext">{{ $partisipan['name'] }}</span>
+                                            @foreach ($agenda->users as $partisipan)
+                                                <span class="bordertext">{{ $partisipan->name }}</span>
                                             @endforeach
                                         </div>
                                     </div>
@@ -131,17 +131,17 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="modalDetailAgendaLabel">Detail: {{ $agenda['nama_agenda'] }}</h5>
+                    <h5 class="modal-title" id="modalDetailAgendaLabel">Detail: {{ $agenda->nama_agenda }}</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <p>Penyelenggara:<strong> Teguh </strong></p>
-                    <p>Tempat:<strong> {{ $agenda['lokasi'] }}</strong></p>
-                    <p>Waktu:<strong> {{ $agenda['waktu'] }}</strong></p>
+                    <p>Penyelenggara:<strong> {{ $agenda->penyelenggara->name }} </strong></p>
+                    <p>Tempat:<strong> {{ $agenda->lokasi }}</strong></p>
+                    <p>Waktu:<strong> {{ $agenda->waktu->format('l, d F Y H:i') . " WIB" }}</strong></p>
                     <p>Partisipan:</p>
                     <div class="text3">
-                        @foreach ($agenda['users'] as $partisipan)
-                            <span class="bordertext">{{ $partisipan['name'] }}</span>
+                        @foreach ($agenda->users as $partisipan)
+                            <span class="bordertext">{{ $partisipan->name }}</span>
                         @endforeach
                     </div>
                 </div>

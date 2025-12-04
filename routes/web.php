@@ -30,7 +30,7 @@ Route::get('/dashboard', function(){
     if(auth()->check()){
         $list_agenda = Agenda::whereHas('konfirmasipartisipan', function($query) {
             $query->where('idpengguna', auth()->id());
-        })->with('users')->get();
+        })->with(['users', 'penyelenggara'])->get();
     }
     return view('dashboard', ['list_agenda' => $list_agenda]);
 })->name('dashboard');
