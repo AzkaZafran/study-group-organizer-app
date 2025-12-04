@@ -47,9 +47,25 @@ class User extends Authenticatable
     }
 
     public function userFriendList(){
-        $teman_berhasil_diminta = $this->hasMany(DaftarPermintaanTeman::class, 'idpeminta')->where('status', 1)->latest()->get();
-        $teman_diterima = $this->hasMany(DaftarPermintaanTeman::class, 'idtarget')->where('status', 1)->latest()->get();
-        return $teman_berhasil_diminta->merge($teman_diterima);
+        return $this->belongsToMany(User::class, 'daftarpermintaanteman', 'idpeminta', 'idtarget')
+                    ->wherePivot('status', 1);
+    }
+
+    public function pendingRequest(){
+        return $this->belongsToMany(User::class, 'daftarpermintaanteman', 'idtarget', 'idpeminta')
+                    ->wherePivot('status', 2);
+    }
+
+    public function friendRequestByUsername($username){
+        return $this->belongsToMany(User::class, 'daftarpermintaanteman', 'idpeminta', 'idtarget')
+                    ->withPivot('status')
+                    ->where('users.name', $username);
+    }
+
+    public function incomingFriendRequestFrom($username){
+        return $this->belongsToMany(User::class, 'daftarpermintaanteman', 'idtarget', 'idpeminta')
+                    ->wherePivot('status', 2)
+                    ->where('users.name', $username);
     }
 
     public function konfirmasiPartisipan()
@@ -59,7 +75,6 @@ class User extends Authenticatable
 
     public function agenda()
     {
-        // through KonfirmasiPartisipan
         return $this->belongsToMany(Agenda::class, 'konfirmasipartisipan', 'idpengguna', 'idagenda');
     }
 }
