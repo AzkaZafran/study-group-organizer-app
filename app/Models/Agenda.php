@@ -34,4 +34,8 @@ class Agenda extends Model
     {
         return $this->belongsToMany(User::class, 'konfirmasipartisipan', 'idagenda', 'idpengguna');
     }
+
+    public function penyelenggara(){
+        return $this->belongsTo(User::class, 'id_penyelenggara');
+    }
 }
