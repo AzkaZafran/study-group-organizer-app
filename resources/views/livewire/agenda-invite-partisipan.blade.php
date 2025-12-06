@@ -3,7 +3,7 @@
         <label for="partisipanAgenda" class="form-label secondary text2">Partisipan</label>
         <div>
             @foreach ($this->participants as $participant)
-                <input type="text" name="agenda_participants_id[]" value="{{ $participant->id }}" hidden>
+                <input name="agenda_participants_id[]" value="{{ $participant->id }}" hidden>
                 <span class=" bordertext secondary text3" style="cursor: default;">
                     {{ $participant->name }}
                     <span wire:click="removeParticipant({{ $participant->id }})"

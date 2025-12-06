@@ -15,7 +15,7 @@ class AgendaController extends Controller
             'agenda_place' => 'required',
             'agenda_date' => ['required', 'date'],
             'agenda_time' => ['required', 'date_format:H:i'],
-            'agenda_participants_id.*' => 'required'
+            'agenda_participants_id.*' => ['required', 'integer']
         ]);
 
         $agenda_query_input = [
@@ -28,11 +28,11 @@ class AgendaController extends Controller
 
         $agenda_res = Agenda::create($agenda_query_input);
         if(empty($agenda_res)){
-            return back();
+            return redirect()->route('dashboard');
         }
 
-        $input['agenda_participants_id.*'][] = auth()->id();
-        foreach ($input['agenda_participants_id.*'] as $i => $partisipan_id) {
+        $input['agenda_participants_id'][] = auth()->id();
+        foreach ($input['agenda_participants_id'] as $partisipan_id) {
             $Konfirm_Part_query = [
                 'idagenda' => $agenda_res->ID_agenda,
                 'idpengguna' => $partisipan_id,
@@ -41,6 +41,6 @@ class AgendaController extends Controller
             KonfirmasiPartisipan::create($Konfirm_Part_query);
         }
 
-        return back();
+        return redirect()->route('dashboard');
     }
 }

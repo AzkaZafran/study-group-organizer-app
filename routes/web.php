@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AgendaController;
 use App\Http\Controllers\FriendController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\VerificationController;
@@ -34,6 +35,9 @@ Route::get('/dashboard', function(){
     }
     return view('dashboard', ['list_agenda' => $list_agenda]);
 })->name('dashboard');
+
+Route::post('/make-agenda', [AgendaController::class, 'makeAgenda'])
+       ->name('make-agenda');
 
 Route::get('/friend-list', [FriendController::class, 'friendList'])
        ->name('friend-list');

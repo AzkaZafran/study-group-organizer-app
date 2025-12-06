@@ -79,42 +79,43 @@
 <div wire:ignore.self class="modal fade" id="modalTambahAgenda" tabindex="-1" aria-labelledby="modalTambahAgendaLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title primary" id="modalTambahAgendaLabel">Form Tambah Agenda</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <form>
+            <form action="{{ route('make-agenda') }}" method="POST">
+                @csrf
+                <div class="modal-header">
+                    <h5 class="modal-title primary" id="modalTambahAgendaLabel">Form Tambah Agenda</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
                     <div class="mb-3">
                         <label class="form-label secondary text2">Penyelenggara : {{ auth()->user()->name }}</label>
-                        </div>
+                    </div>
                     
                     <div class="mb-3">
                         <label for="namaAgenda" class="form-label secondary text2">Nama Agenda</label>
-                        <input type="text" class="form-control" id="namaAgenda" placeholder="name agenda">
+                        <input type="text" class="form-control" id="namaAgenda" placeholder="name agenda" name="agenda_name">
                     </div>
 
                     <div class="row mb-3 gx-2">
                         <div class="col-md-5">
                             <label for="tempatAgenda" class="form-label secondary text2">Tempat</label>
-                            <input type="text" class="form-control" id="tempatAgenda" placeholder="name place">
+                            <input type="text" class="form-control" id="tempatAgenda" placeholder="name place" name="agenda_place">
                         </div>
                         <div class="col-md-4">
                             <label for="waktuAgenda" class="form-label secondary text2">Waktu</label>
-                            <input type="date" class="form-control" id="waktuAgenda" placeholder="d/M/y">
+                            <input type="date" class="form-control" id="waktuAgenda" placeholder="d/M/y" name="agenda_date">
                         </div>
                         <div class="col-md-3">
                             <label for="jamAgenda" class="form-label secondary text2">Jam</label>
-                            <input type="time" class="form-control" id="jamAgenda" placeholder="-- : --">
+                            <input type="time" class="form-control" id="jamAgenda" placeholder="-- : --" name="agenda_time">
                         </div>
                     </div>
                     
                     @livewire('agenda-invite-partisipan')
-                </form>
-            </div>
-            <div class="modal-footer justify-content-center border-0">
-                <button type="button" class="btn btn-primary" >Simpan</button>
-            </div>
+                </div>
+                <div class="modal-footer justify-content-center border-0">
+                    <button type="submit" class="btn btn-primary" >Simpan</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>
