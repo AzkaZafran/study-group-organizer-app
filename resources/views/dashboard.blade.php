@@ -76,7 +76,7 @@
 
 @endsection
 
-<div class="modal fade" id="modalTambahAgenda" tabindex="-1" aria-labelledby="modalTambahAgendaLabel" aria-hidden="true">
+<div wire:ignore.self class="modal fade" id="modalTambahAgenda" tabindex="-1" aria-labelledby="modalTambahAgendaLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -86,7 +86,7 @@
             <div class="modal-body">
                 <form>
                     <div class="mb-3">
-                        <label class="form-label secondary text2">Penyelenggara : Teguh</label>
+                        <label class="form-label secondary text2">Penyelenggara : {{ auth()->user()->name }}</label>
                         </div>
                     
                     <div class="mb-3">
@@ -109,14 +109,7 @@
                         </div>
                     </div>
                     
-                    <div class="mb-3">
-                        <label for="partisipanAgenda" class="form-label secondary text2">Partisipan</label>
-                        <input type="text" class="form-control" id="partisipanAgenda" placeholder="+ Klik untuk tambah partisipan">
-                    </div>
-
-                    <div class="mb-3">
-                        <div class="span bordertext secondary text3">Teguh</div>
-                    </div>
+                    @livewire('agenda-invite-partisipan')
                 </form>
             </div>
             <div class="modal-footer justify-content-center border-0">
