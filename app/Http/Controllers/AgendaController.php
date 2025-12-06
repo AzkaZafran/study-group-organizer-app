@@ -43,15 +43,4 @@ class AgendaController extends Controller
 
         return back();
     }
-
-    public function searchFriendToInvite($username){
-        $query_result = auth()->user()->userFriendList()
-                                      ->where('users.name', $username)
-                                      ->get();
-        return back()->with('friend_search_result', $query_result);
-    }
-
-    public function insertToInviteList(User $user, $friend_invite_list = collect()){
-        
-    }
 }
