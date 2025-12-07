@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AgendaController;
+use App\Http\Controllers\CatatanController;
 use App\Http\Controllers\FriendController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\VerificationController;
@@ -60,3 +61,6 @@ Route::get('/friend-add/search-friend', [FriendController::class, 'searchUserToA
 
 Route::post('/friend-add/{user}', [FriendController::class, 'sendRequest'])
        ->name('requesting-friend');
+
+Route::get('/agenda/{agenda}/catatan', [CatatanController::class, 'showAgendaCatatan'])
+       ->name('catatan-agenda');

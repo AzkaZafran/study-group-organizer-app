@@ -38,4 +38,9 @@ class Agenda extends Model
     public function penyelenggara(){
         return $this->belongsTo(User::class, 'id_penyelenggara');
     }
+
+    public function listCatatan(){
+        return $this->hasMany(Catatan::class, 'idagenda', 'ID_agenda')
+                    ->with('author');
+    }
 }
