@@ -37,6 +37,8 @@ class AgendaInvitePartisipan extends Component
     public function addParticipant($friend_id){
         if (!in_array($friend_id, $this->selected_friends_id)) {
             $this->selected_friends_id[] = $friend_id;
+            $this->temp_input = '';
+            $this->username_input = '';
         }
     }
 
