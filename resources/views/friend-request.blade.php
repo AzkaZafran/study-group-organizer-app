@@ -1,7 +1,7 @@
 @extends('friend')
 
 @section('content-friend')
-    <ul class="nav nav-fill mb-5">
+    <ul class="nav nav-fill mb-3">
         <li class="nav-item">
             <a class="nav-link cnav-text unselected" href="{{ route('friend-list') }}">Daftar Teman</a>
         </li>

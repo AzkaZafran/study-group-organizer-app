@@ -8,6 +8,10 @@ use App\Http\Controllers\VerificationController;
 use App\Models\Agenda;
 use Illuminate\Support\Facades\Route;
 
+Route::get('/tes', function () {
+    return view('catatan');
+});
+
 Route::get('/', function () {
     return view('login');
 });
