@@ -13,17 +13,12 @@
         </li>
     </ul>
     <div>
-        <ul class="list-unstyled"> 
-            <li class="borderlist mb-3">
-                Asep
-            </li>
-            <li class="borderlist mb-3">
-                Budi
-            </li>
-
-            <li class="borderlist mb-3">
-                Citra
-            </li>
+        <ul class="list-unstyled">
+            @foreach ($friend_list as $friend)
+                <li class="borderlist mb-3">
+                    {{ $friend->name }}
+                </li>
+            @endforeach
         </ul>
     </div>
 @endsection
