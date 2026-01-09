@@ -12,7 +12,6 @@
             <a class="nav-link cnav-text unselected" href="{{ route('add-friend') }}">Tambah Teman</a>
         </li>
     </ul>
-
     <div>
     <ul class="list-unstyled"> 
         @foreach($permintaan_teman as $req)
@@ -26,20 +25,20 @@
             <div class="d-flex gap-2">
 
                 {{-- Tombol Reject (Merah, Icon X) --}}
-                <a href="{{ route('reject-friend', ['id' => $req->id]) }}">
+                <form action="{{ route('reject-friend', ['id' => $req->id]) }}" @method("DELETE")>
                     <button class="btn"
                         style="background:#8b1e1e; color:white; width:48px; height:38px; border-radius:6px;">
                         ✕
                     </button>
-                </a>
+                </form>
 
                 {{-- Tombol Accept (Hijau, Icon ✓) --}}
-                <a href="{{ route('accept-friend', ['id' => $req->id]) }}">
+                <form action="{{ route('accept-friend', ['id' => $req->id]) }}" @method("PUT")>
                     <button class="btn"
                         style="background:#1e8b33; color:white; width:48px; height:38px; border-radius:6px;">
                         ✓
                     </button>
-                </a>
+                </form>
 
             </div>
 
