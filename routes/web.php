@@ -27,15 +27,15 @@ Route::post('/register/input-otp', [VerificationController::class, 'sendOtpThenI
 Route::post('/register/verify-otp', [VerificationController::class, 'verifyOtpThenRegister'])
        ->name('verify-otp');
 
-Route::get('/dashboard', function(){
+Route::get('/agenda', function(){
     $list_agenda = [];
     if(auth()->check()){
         $list_agenda = Agenda::whereHas('konfirmasipartisipan', function($query) {
             $query->where('idpengguna', auth()->id());
         })->with(['users', 'penyelenggara'])->get();
     }
-    return view('dashboard', ['list_agenda' => $list_agenda]);
-})->name('dashboard');
+    return view('agenda', ['list_agenda' => $list_agenda]);
+})->name('agenda');
 
 Route::post('/make-agenda', [AgendaController::class, 'makeAgenda'])
        ->name('make-agenda');

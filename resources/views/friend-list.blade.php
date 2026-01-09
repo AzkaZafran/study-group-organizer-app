@@ -1,5 +1,7 @@
 @extends('friend')
 
+@section('title-page', 'Friend List')
+
 @section('content-friend')
     <ul class="nav nav-fill mb-5">
         <li class="nav-item">

@@ -1,9 +1,11 @@
 @extends('layouts.app')
 
+@section('title-page', 'Agenda')
+
 @section('current-navbar-active')
     <ul class="d-flex navbar-nav ms-auto mb-2 mb-lg-0">
         <li class="nav-item">
-            <a class="nav-link cnavbar-text active" aria-current="page" href="{{ route('dashboard') }}">Dashboard</a>
+            <a class="nav-link cnavbar-text active" aria-current="page" href="{{ route('agenda') }}">Agenda</a>
         </li>
         <li class="nav-item">
             <a class="nav-link cnavbar-text" href="{{ route('friend-list') }}">Teman</a>
@@ -48,6 +50,12 @@
                                     <div class="card-text text2 col-3">Jam</div>
                                     <div class="card-text text2 col-1">:</div>
                                     <div class="card-text text3 col-8">{{ $agenda->waktu->format('H:i') . " WIB" }}</div>
+                                </div>
+                                
+                                <div class="row mb-1">
+                                    <div class="card-text text2 col-3">Status</div>
+                                    <div class="card-text text2 col-1">:</div>
+                                    <div class="card-text text3 col-8">{{ $agenda->status }}</div>
                                 </div>
                                 
                                 <div class="row">
@@ -113,7 +121,7 @@
                     @livewire('agenda-invite-partisipan')
                 </div>
                 <div class="modal-footer justify-content-center border-0">
-                    <button type="submit" class="btn btn-primary" >Simpan</button>
+                    <button type="submit" class="btn " style="background-color: #1E3A8A; color: white;">Simpan</button>
                 </div>
             </form>
         </div>
@@ -132,6 +140,7 @@
                     <p>Penyelenggara:<strong> {{ $agenda->penyelenggara->name }} </strong></p>
                     <p>Tempat:<strong> {{ $agenda->lokasi }}</strong></p>
                     <p>Waktu:<strong> {{ $agenda->waktu->format('l, d F Y H:i') . " WIB" }}</strong></p>
+                    <p>Status:<strong> {{ $agenda->status}}</strong></p>
                     <p>Partisipan:</p>
                     <div class="text3">
                         @foreach ($agenda->users as $partisipan)
@@ -140,6 +149,11 @@
                     </div>
                 </div>
                 <div class="modal-footer">
+                    <a href="{{ route('catatan-agenda', $agenda->ID_agenda) }}">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" style="background:#1d1d1d; color:white;">
+                            Ke Catatan
+                        </button>
+                    </a>
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
                 </div>
             </div>

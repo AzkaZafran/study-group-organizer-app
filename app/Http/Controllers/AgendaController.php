@@ -28,7 +28,7 @@ class AgendaController extends Controller
 
         $agenda_res = Agenda::create($agenda_query_input);
         if(empty($agenda_res)){
-            return redirect()->route('dashboard');
+            return redirect()->route('agenda');
         }
 
         $input['agenda_participants_id'][] = auth()->id();
@@ -41,6 +41,6 @@ class AgendaController extends Controller
             KonfirmasiPartisipan::create($Konfirm_Part_query);
         }
 
-        return redirect()->route('dashboard');
+        return redirect()->route('agenda');
     }
 }

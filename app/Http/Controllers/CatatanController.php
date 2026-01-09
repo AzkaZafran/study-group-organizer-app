@@ -39,7 +39,7 @@ class CatatanController extends Controller
         ]);
 
         if($input['author_id'] !== (int) auth()->id()){
-            return redirect()->route('dashboard');
+            return redirect()->route('agenda');
         }
 
         $selected_catatan = Catatan::find($input['catatan_id']);
@@ -55,7 +55,7 @@ class CatatanController extends Controller
 
     public function deleteCatatan(Catatan $catatan){
         if(auth()->id() !== (int) $catatan->idpengguna){
-            return redirect()->route('dashboard');
+            return redirect()->route('agenda');
         }
 
         $catatan->delete();
